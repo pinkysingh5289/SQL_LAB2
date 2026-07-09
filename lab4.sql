@@ -37,4 +37,15 @@ select * from customers  order by firstname asc;
 select * from customers where phone is null;
 select * from customers where email is not null ;
 
+select * from accounts;
+select balance,ntile(3) over() from accounts;
+
+select * from loans;
+select cust_id,loanid,lag(loanamount) over(order by loanamount desc) as previous from loans;
+select cust_id,loanid,lead(loanamount) over(order by loanamount desc) as Nexts from loans;
+
+select  loanamount,firstname,lastname from customers join loans on customers.cust_id = loans.cust_id;
+select loanamount,firstname,lastname from customers left outer join loans on customers.cust_id = loans.cust_id;
+
+select * from customers join loans on customers.cust_id = loans.cust_id;
 
