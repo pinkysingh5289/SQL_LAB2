@@ -13,3 +13,6 @@ describe customers;
 
 alter table customers
 add constraint uq_email unique (email);
+
+insert into  customers
+()
